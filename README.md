@@ -12,12 +12,16 @@ The incomplete feature list includes:
 
 - Auto line count about source code files, it will provide statistics to give you some stuff to brag about on the resume:
       
-    shell: 2500L
-    python: 3000L
+      shell: 2500L
+      python: 3000L
 
-- Working easily with Vim: allow you to export the snippet directly from Vim without interrupting your workflow (ie. close vim, open vim, paste the snippet, then back to vim to continue working)
+- Working easily with Vim: 
+
+      allow you to export the snippet directly from Vim without interrupting your workflow (ie. close vim, open vim, paste the 
+      snippet, then back to vim to continue working)
 
 - Intuitive interface
+      
       Title, Labels, Related URL, Snippet code
 
 - Rich syntax highlight
