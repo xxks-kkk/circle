@@ -6,7 +6,7 @@ This is a hobby project when I started my career as a *professional* programmer 
 
 ## What is target for circle?
 
-Circle is a code snippet management tool that designed to work under UNIX-like system. It will *NOT* provide any GUI, and meant to be used under terminal. 
+Circle is a code snippet management tool that designed to work under UNIX-like system. It will *NOT* provide any GUI, and meant to be used under terminal. It aims to be open: provide a complete tree snippet file structure that can be manipulated easily without hiding all your snippets inside the software.
 
 The incomplete feature list includes:
 
@@ -14,3 +14,10 @@ The incomplete feature list includes:
       
     shell: 2500L
     python: 3000L
+
+- Working easily with Vim: allow you to export the snippet directly from Vim without interrupting your workflow (ie. close vim, open vim, paste the snippet, then back to vim to continue working)
+
+- Intuitive interface
+      Title, Labels, Related URL, Snippet code
+
+- Rich syntax highlight
