@@ -28,3 +28,5 @@ The incomplete feature list includes:
       Title, Labels, Related URL, Snippet code
 
 - Rich syntax highlight
+
+- Include a DB for better performance, and organization? Maybe?
