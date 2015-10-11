@@ -2,6 +2,9 @@
 A code snippet management tool that meant to be extreme lightweight, powerful, and portable
 
 ## Why circle?
+
+**In short: I hate GUI, and how commerical tool handle my snippet data: hiding it inside the app**
+
 This is a hobby project when I started my career as a *professional* programmer at IBM. I should have but never used a code snippet management tool before, and I think it is time to develop my own code base in order to improve work efficiency. I tired some code snippet management tools but I was bugged out by their program size, GUI, and incapibility to meet my needs. So, I want to develop one on my own, and at the same time, hone my programming skills.
 
 ## What is target for circle?
@@ -20,7 +23,7 @@ The incomplete feature list includes:
       allow you to export the snippet directly from Vim without interrupting your workflow (ie. close vim, open vim, paste the 
       snippet, then back to vim to continue working)
 
-- Intuitive interface
+- Intuitive text-based interface
       
       Title, Labels, Related URL, Snippet code
 
