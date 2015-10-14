@@ -11,6 +11,10 @@ This is a hobby project when I started my career as a *professional* programmer 
 
 Circle is a code snippet management tool that designed to work under UNIX-like system. It will *NOT* provide any GUI, and meant to be used under terminal. It aims to be open: provide a complete tree snippet file structure that can be manipulated easily without hiding all your snippets inside the software.
 
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+## Scratch
+
 The incomplete feature list includes:
 
 - Auto line count about source code files, it will provide statistics to give you some stuff to brag about on the resume:
@@ -30,3 +34,9 @@ The incomplete feature list includes:
 - Rich syntax highlight
 
 - Include a DB for better performance, and organization? Maybe?
+
+- Allow sync with Github or specified server
+
+- Build a search engine on top of it with interface like google ( called "search my code base")
+
+- CRAZY: Be a startup, built a community forum, reward top contributor, mainly like google but restricted to "search for code"
