@@ -64,15 +64,147 @@ to search. Also, when he wants to see the actual code snippet not through circle
 can directly go to his specified circle snippet store location, and play around with
 the snippet as he wishes. 
 
+Scenario 2: Zeke
+
+Zeke is not as geeky as David but he still needs to do the work under Unix environment
+most of the time. Zeke has no preference on what text editor he wants to use because
+he doesn't care about that as long as he can get job done. However, he still needs a tool to
+better manage his code snippet. He wishes a tool that allows him to enter "Title" "tag" "url"
+"content" in command-line fashion, and provides some basic functionality to allow him browse
+the entries. Maybe like a list? Maybe ... He doesn't know.
+
 
 ***** Non goals *****
 
 This version will not support the following features:
-    1. GUI
+    1. GUI. Definitely no!
     2. Sophisticated search engine. I don't mean to build a search engine powerful like
     google. As long as it can search result for exactly David typing, it will be good.
     Later, if I have time, I can improve this a bit.
     3. Sync. Leave it here for now. Come back later.
     4. syntax highlight. Not the right time to figure out what is good syntax color
     for each code snippet.
+    5. Customize tree file structure import. This feature is cool but not gonna do it now
+    6. Database to manage entries. Tough call on whether to do it or not. THINK!
+    7. Integration with text editor. David probably is gonna upset.
 
+
+***** Commands overview  *****
+
+More like a command line tool. Everything starts with `circle ...`, where `...` represents some command line options
+
+Note: <options> means placeholder for some options, --options means command option with name "options" exactly
+
+# show all tags 
+circle --tag
+
+# show all entries
+circle
+
+# show entries under certain tag
+circle <tag>
+
+# create a new entry
+circle --new
+
+# view the entry
+circle --view <entry_num>
+
+# help
+circle --help
+
+
+***** Details spec *****
+
+1. install
+    prompt user to specify where he wants to store his snippets. Then create a snippet directory under the previously specified
+    directory
+
+2. show all tags
+    list all tags like this:
+
+    shell
+    c++
+    Java
+    ...
+
+3. show all entries
+    like this:
+
+    shell
+        <title1> [...]
+        <title2> [...]
+        <title3> [...]
+    c++
+        <title4> [...]
+        <title5> [...]
+        <title6> [...]
+    Java
+        <title7> [...]
+        <title8> [...]
+        <title9> [...]
+
+    Note:
+        3.1 [...] contains some stats about the file: for now, I think "number of open times" is the most important one
+            because it tells how often user will use the file, and sort the file under each tag based upon this stat in 
+            descending order.
+
+4. show entries under certain tag
+    the format will keep consistent with (3) show all entries.
+
+5. create a new entry
+    after this one entered, a series of prompts will show up:
+
+    - Title?
+    - Tag?
+    - Url?
+    - Content?
+
+    Those four prompts basically ask user to input the thing. User
+    should have option to switch back and forth among these four prompts
+    using arrow keys. 
+
+    Note about each prompt will be following:
+
+    - Title?
+
+        User can enter anything they want
+
+    - Tag?
+
+        This is the place user enters the tag. Possible autocompletion will need.
+        Here, "Shell" is same as "shell", "SHELL",... In other words, cases are ignored.
+
+    - Url?
+
+        This is for user to indicate where this code snippet comes from?
+
+    - Content?
+
+        This will open up editor that allow user to input their code snippet. Or, just let them
+        input directly under the prompt? THINK!
+
+        Pro editor: enjoys syntax highlight, and other great features comes with editor
+        Con editor: separate interface, user may need to take extra effort memorizing what "Title" "Tag" ... they just input
+
+6. view the entry
+    6.1 format out nicely about "Title" "Tag" "Url" "Content". 
+    6.2 add some stats info at the very beginning (like, directory of this code
+        snippet, when first time created, when last time modified, number of times viewed, ...)
+    6.3 automatically copy the "content" into clipboard and ready to use
+
+    format like:
+
+    ----------------------
+    Stats area
+    ----------------------
+    Title, 
+    Tag,
+    Url
+    ----------------------
+    Content
+    ----------------------
+
+7. help
+
+    Nothing new but please do format nicely.
