@@ -113,6 +113,9 @@ circle --view <entry_num>
 # help
 circle --help
 
+# download locally
+circle --download
+
 
 ***** Details spec *****
 
@@ -208,3 +211,7 @@ circle --help
 7. help
 
     Nothing new but please do format nicely.
+	
+8. download locally
+
+	circle will download the code snippet from code snippet files to a local user-specified directory.
