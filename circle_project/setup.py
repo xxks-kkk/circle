@@ -11,7 +11,7 @@ config={
         'author_email': 'ferrishu3886@gmail.com',
         'version': '0.1',
         'install_requires': ['nose'],
-        'packages': ['CIRCLE'],
+        'packages': ['circle'],
         'scripts': [],
         'name': 'circle'
         }
