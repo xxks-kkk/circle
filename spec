@@ -1,5 +1,5 @@
 NOTE: This is my first seriously-treated spec, that follows 
-writing philosophy by Joel on Software: 
+spec writing philosophy by Joel on Software: 
 http://www.joelonsoftware.com/articles/fog0000000035.html
 
 
@@ -9,7 +9,7 @@ http://www.joelonsoftware.com/articles/fog0000000035.html
             Functional Specification
 
                    Zeyuan Hu
-             Last Updated: 10/14/15
+             Last Updated: 10/18/15
 
 ------------------------------------------------------------
 
@@ -32,7 +32,7 @@ they interact with circle.
 
 circle is a code snippet management tool that allows user to write and 
 manage their code snippet in a terminal-based environment. Snippet, to my
-understanding, is a chunck of code that serves as a guide/template for future
+best of understanding, is a chunck of code that serves as a guide/template for future
 development.
 
 
@@ -43,7 +43,7 @@ David is a geeky software developer who refuses to use copyright software
 unless he has to. During the day work, he deals with code a lot. 
 Most of the time, he connects his windows laptop with company's server, and start
 typing code on it. When he is done with googling and experiments with new code,
-he wants to keep them future reference. 
+he wants a way to keep them future reference in an organized fashion. 
 But he feels laborsome to switch back to windows, and copy-paste his 
 just-typed code into a GUI-based snippet management software. He 
 feels this slow down his pace and drags him out of his "zone". Also, he doesn't 
@@ -52,12 +52,12 @@ snippets, and only gives him a option to export them.
 
 David now starts to use circle. Whenever he wants to save a piece of code, he simply
 into visual mode, highlight them, and press a key, a new window will split out. It
-will ask him entering title, labels, and snippet code. Once he is finished, he simply
+will ask him entering title, tags, and snippet code. Once he is finished, he simply
 press the same key, the window will close, and he can then back to work. 
 
 In some cases, David may want to directly save the code he finds on web. He don't need
 to open Vim. He can start circle as an independent program as well. Similarly, he can
-enter title, labels, snippet code, and url. 
+enter title, tags, snippet code, and url. 
 
 When he wants to reference the code, he can get a list-view by label or type key word
 to search. Also, when he wants to see the actual code snippet not through circle, he 
@@ -77,16 +77,23 @@ the entries. Maybe like a list? Maybe ... He doesn't know.
 ***** Non goals *****
 
 This version will not support the following features:
+    
     1. GUI. Definitely no!
+
     2. Sophisticated search engine. I don't mean to build a search engine powerful like
     google. As long as it can search result for exactly David typing, it will be good.
     Later, if I have time, I can improve this a bit.
-    3. Sync. Leave it here for now. Come back later.
+    
+    3. Sync. No interest to allow user to sync with Dropbox, Google Drive, OneDrive. Only support github for now.
+    
     4. syntax highlight. Not the right time to figure out what is good syntax color
     for each code snippet.
+    
     5. Customize tree file structure import. This feature is cool but not gonna do it now
-    6. Database to manage entries. Tough call on whether to do it or not. THINK!
-    7. Integration with text editor. David probably is gonna upset.
+    
+    6. Database to manage entries. High chance not do it now. Maybe nice to implement this when I seriously consider 2) search engine
+    
+    7. Integration with text editor. I like to satisfy Zeke's wishes, and later move on to David's.
 
 
 ***** Commands overview  *****
@@ -102,7 +109,7 @@ circle --tag
 circle
 
 # show entries under certain tag
-circle <tag>
+circle --tag <tag>
 
 # create a new entry
 circle --new
@@ -137,17 +144,17 @@ circle --upload
     like this:
 
     shell
-        <title1> [...]
-        <title2> [...]
-        <title3> [...]
+        <entry_num> <title1> [...]
+        <entry_num> <title2> [...]
+        <entry_num> <title3> [...]
     c++
-        <title4> [...]
-        <title5> [...]
-        <title6> [...]
+        <entry_num> <title4> [...]
+        <entry_num> <title5> [...]
+        <entry_num> <title6> [...]
     Java
-        <title7> [...]
-        <title8> [...]
-        <title9> [...]
+        <entry_num> <title7> [...]
+        <entry_num> <title8> [...]
+        <entry_num> <title9> [...]
 
     Note:
         3.1 [...] contains some stats about the file: for now, I think "number of open times" is the most important one
@@ -193,11 +200,13 @@ circle --upload
         Con editor: separate interface, user may need to take extra effort memorizing what "Title" "Tag" ... they just input
 
 6. view the entry
+    
     6.1 format out nicely about "Title" "Tag" "Url" "Content". 
     6.2 add some stats info at the very beginning (like, directory of this code
         snippet, when first time created, when last time modified, number of times viewed, ...)
     6.3 automatically copy the "content" into clipboard and ready to use
-
+    6.4 allow Zeke/David enters the <entry_num> to lookup without typing the long "title" or ...
+    
     format like:
 
     ----------------------
