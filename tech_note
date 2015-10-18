@@ -1,0 +1,24 @@
+------------------------------------------------------------
+
+                      circle
+            Technical implementation note
+                     
+                     Zeyuan Hu
+              Last Updated: 10/18/15
+ 
+------------------------------------------------------------
+
+1.  The internal entry structure using json. When "view the entry"
+    the json information will be populated into specified file format.
+    When "create a new entry" with `-f | --file` option supplemented,
+    technical diffculty is that I need to find a way to
+        1.1 check the integrity of the file format. This prevents user
+            from accidentally or intentionally modifying the pre-defined
+            file format
+        1.2 parse the file back into json structure. This can be a Technical
+            diffculty, and further research is needed. 
+                1.2.1 How to parse a file into json?
+                1.2.1 what file format allows less effort to parse?
+
+2.  File structure of the entry also needs to consider. For now, the default structure
+    will be by tag. But this is subject to change. 
