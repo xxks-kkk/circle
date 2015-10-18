@@ -113,6 +113,8 @@ circle --view <entry_num>
 # help
 circle --help
 
+# push to github
+circle --push
 
 ***** Details spec *****
 
@@ -206,5 +208,4 @@ circle --help
     ----------------------
 
 7. help
-
     Nothing new but please do format nicely.
