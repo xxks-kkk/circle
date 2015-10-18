@@ -116,6 +116,8 @@ circle --help
 # download locally
 circle --download
 
+# upload to github
+circle --upload
 
 ***** Details spec *****
 
@@ -215,3 +217,8 @@ circle --download
 8. download locally
 
 	circle will download the code snippet from code snippet files to a local user-specified directory.
+
+9. upload to github
+
+    circle will upload code snippets to github. This allows both Zeke/David to enjoy some cloud feature: they can add code
+    snippet from different machine, and get a copy of his own code snippets whenever he wants.
