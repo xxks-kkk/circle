@@ -39,6 +39,7 @@ development.
 ***** Scenarios *****
 
 Scenario 1: David
+
 David is a geeky software developer who refuses to use copyright software 
 unless he has to. During the day work, he deals with code a lot. 
 Most of the time, he connects his windows laptop with company's server, and start
@@ -64,6 +65,7 @@ to search. Also, when he wants to see the actual code snippet not through circle
 can directly go to his specified circle snippet store location, and play around with
 the snippet as he wishes. 
 
+
 Scenario 2: Zeke
 
 Zeke is not as geeky as David but he still needs to do the work under Unix environment
@@ -71,7 +73,10 @@ most of the time. Zeke has no preference on what text editor he wants to use bec
 he doesn't care about that as long as he can get job done. However, he still needs a tool to
 better manage his code snippet. He wishes a tool that allows him to enter "Title" "tag" "url"
 "content" in command-line fashion, and provides some basic functionality to allow him browse
-the entries. Maybe like a list? Maybe ... He doesn't know.
+the entries. Maybe like a list? Maybe ... He doesn't know. One thing he particularly doesn't like
+the previous code snippet management tool is that there is no separated interface for editing and viewing.
+Previous tool merge two interfaces into one. Zeke consider himself as a careless guy. He usually messes up his
+precious code snippets when he simply just want to lookup. He really wishes "circle" could fix this.
 
 
 ***** Non goals *****
@@ -112,10 +117,14 @@ circle
 circle --tag <tag>
 
 # create a new entry
-circle --new
+circle --new [-f |--file]
 
 # view the entry
 circle --view <entry_num>
+
+# edit the entry
+circle --edit <entry_num>
+circle --edit <entry_num> [--title <new_title> | --tag <new_tag> | --url <new_url> | --content <content>]
 
 # help
 circle --help
@@ -165,39 +174,47 @@ circle --upload
     the format will keep consistent with (3) show all entries.
 
 5. create a new entry
-    after this one entered, a series of prompts will show up:
 
-    - Title?
-    - Tag?
-    - Url?
-    - Content?
+    5.1 circle --new 
+        
+        after this one entered, a series of prompts will show up:
 
-    Those four prompts basically ask user to input the thing. User
-    should have option to switch back and forth among these four prompts
-    using arrow keys. 
+        - Title?
+        - Tag?
+        - Url?
+        - Content?
 
-    Note about each prompt will be following:
+        Those four prompts basically ask user to input the thing. User
+        should have option to switch back and forth among these four prompts
+        using arrow keys. 
 
-    - Title?
+        Note about each prompt will be following:
 
-        User can enter anything they want
+        - Title?
 
-    - Tag?
+            User can enter anything they want
 
-        This is the place user enters the tag. Possible autocompletion will need.
-        Here, "Shell" is same as "shell", "SHELL",... In other words, cases are ignored.
+        - Tag?
 
-    - Url?
+            This is the place user enters the tag. Possible autocompletion will need.
+            Here, "Shell" is same as "shell", "SHELL",... In other words, cases are ignored.
 
-        This is for user to indicate where this code snippet comes from?
+        - Url?
 
-    - Content?
+            This is for user to indicate where this code snippet comes from?
 
-        This will open up editor that allow user to input their code snippet. Or, just let them
-        input directly under the prompt? THINK!
+        - Content?
 
-        Pro editor: enjoys syntax highlight, and other great features comes with editor
-        Con editor: separate interface, user may need to take extra effort memorizing what "Title" "Tag" ... they just input
+            This will open up editor that allow user to input their code snippet. Or, just let them
+            input directly under the prompt? THINK!
+
+            Pro editor: enjoys syntax highlight, and other great features comes with editor
+            Con editor: separate interface, user may need to take extra effort memorizing what "Title" "Tag" ... they just input
+    
+    5.2 circle --new [-f | --file]
+
+        -f or --file format indicates that user want to edit the file directly. This will open up a file with format much like 6) view
+        the entry except the "stats area" will not be included.
 
 6. view the entry
     
@@ -219,11 +236,24 @@ circle --upload
     Content
     ----------------------
 
-7. help
+7. edit the entry
+
+    This supports two types of commands:
+
+        7.1 circle --edit <entry_num>
+
+            This will prompt up the entry file to allow user to edit. The entry file will look much similar to 6) view the entry format except that
+            there will be no stats area.
+
+        7.2 circle --edit <entry_num> [--title <new_title> | --tag <new_tag> | --url <new_url> | --content <content>]
+
+            This provide a quick way for user to modify the entry.
+
+8. help
 
     Nothing new but please do format nicely.
 	
-8. download locally
+9. download locally
 
 	circle will download the code snippet from code snippet files to a local user-specified directory.
 
