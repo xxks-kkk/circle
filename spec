@@ -100,6 +100,7 @@ This version will not support the following features:
     
     7. Integration with text editor. I like to satisfy Zeke's wishes, and later move on to David's.
 
+    8. No backup feature support yet. Definitely future.
 
 ***** Commands overview  *****
 
@@ -134,6 +135,9 @@ circle --download
 
 # upload to github
 circle --upload
+
+# support config
+circle --config <key> <value>
 
 ***** Details spec *****
 
@@ -255,9 +259,15 @@ circle --upload
 	
 9. download locally
 
-	circle will download the code snippet from code snippet files to a local user-specified directory.
+	circle will download the code snippet from code snippet files to a local user-specified directory. The file will be compressed into tar.gz before
+    downloading.
 
 9. upload to github
 
     circle will upload code snippets to github. This allows both Zeke/David to enjoy some cloud feature: they can add code
     snippet from different machine, and get a copy of his own code snippets whenever he wants.
+
+10. support config
+    
+    Mimic git. This will allow user to config circle with key-value pair. Alternatively, user can directly modify ~/.circleconfig file
+    
